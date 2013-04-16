@@ -20,7 +20,7 @@ int main(int argc, const char * argv[])
     //retrieve values
     printf("name : %s age: %s", C_ARR_Get(arr, 0), C_ARR_Get(arr, 1));
     //release array
-    C_ARR_Delete(arr, NULL);
+    C_ARR_Delete(arr);
     
 
     return 0;

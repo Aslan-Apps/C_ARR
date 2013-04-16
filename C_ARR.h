@@ -44,7 +44,7 @@ typedef struct C_ARR_
 
 C_ARR *C_ARR_Create (size_t n);
 
-void C_ARR_Delete (C_ARR *a, void (*func)(void *));
+void C_ARR_Delete (C_ARR *a);
 
 void C_ARR_Set (C_ARR *a, void *data, size_t index);
 

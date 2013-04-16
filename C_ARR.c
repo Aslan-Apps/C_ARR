@@ -81,7 +81,7 @@ size_t C_ARR_Size (C_ARR *a) {
     return a->size;
 }
 
-void C_ARR_Delete (C_ARR *a, void (*f)(void *)) {
+void C_ARR_Delete (C_ARR *a) {
 
     free (a->data);
     free (a);
