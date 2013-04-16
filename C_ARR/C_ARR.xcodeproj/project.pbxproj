@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5674C784171A0F6B0046E9C2 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 5674C783171A0F6B0046E9C2 /* main.c */; };
 		5674C786171A0F6C0046E9C2 /* C_ARR.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5674C785171A0F6B0046E9C2 /* C_ARR.1 */; };
+		56852F9C171CBA7900407225 /* C_ARR.c in Sources */ = {isa = PBXBuildFile; fileRef = 56852F9A171CBA7900407225 /* C_ARR.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,9 @@
 		5674C780171A0F6B0046E9C2 /* C_ARR */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = C_ARR; sourceTree = BUILT_PRODUCTS_DIR; };
 		5674C783171A0F6B0046E9C2 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		5674C785171A0F6B0046E9C2 /* C_ARR.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = C_ARR.1; sourceTree = "<group>"; };
+		56852F9A171CBA7900407225 /* C_ARR.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = C_ARR.c; path = ../C_ARR.c; sourceTree = "<group>"; };
+		56852F9B171CBA7900407225 /* C_ARR.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = C_ARR.h; path = ../C_ARR.h; sourceTree = "<group>"; };
+		56852F9D171CBAAD00407225 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,9 @@
 		5674C777171A0F6B0046E9C2 = {
 			isa = PBXGroup;
 			children = (
+				56852F9D171CBAAD00407225 /* README.md */,
+				56852F9A171CBA7900407225 /* C_ARR.c */,
+				56852F9B171CBA7900407225 /* C_ARR.h */,
 				5674C782171A0F6B0046E9C2 /* C_ARR */,
 				5674C781171A0F6B0046E9C2 /* Products */,
 			);
@@ -118,6 +125,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5674C784171A0F6B0046E9C2 /* main.c in Sources */,
+				56852F9C171CBA7900407225 /* C_ARR.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +222,7 @@
 				5674C78B171A0F6C0046E9C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

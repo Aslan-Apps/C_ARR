@@ -1,7 +1,7 @@
 /*
- * C_ARR.h
+ * C_ARR.m
  *
- * Created by Oguzhan Cansin Gungor on 16/04/13.
+ * Created by Oguzhan Cansin Gungor on 17/04/13.
  *
  * Copyright (c) 2013 Aslan-Apps. All rights reserved.
  *
@@ -34,20 +34,71 @@
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-
-typedef struct C_ARR_
-{
-    size_t size;
-    void **data;
-} C_ARR;
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+#include "C_ARR.h"
 
 
-C_ARR *C_ARR_Create (size_t n);
+static void grow_array (C_ARR *a) {
+    void **tmp = NULL;
+    a->size *= 2;
+    
+    tmp = realloc (a->data, a->size * (sizeof *(a->data)));
+    if (tmp == NULL) {
+        perror ("can't grow array");
+        exit (EXIT_FAILURE);
+    }
+    a->data = tmp;
+}
 
-void C_ARR_Delete (C_ARR *a, void (*func)(void *));
+C_ARR *array_new (size_t n) {
+    C_ARR *a = malloc (sizeof *a);
+    
+    if (n < 1)
+        n = 1;
+    
+    if (a != NULL) {
+        a->data = calloc (n, sizeof *(a->data));
+        if (a->data == NULL) {
+            free (a);
+            perror ("can't create array");
+            exit (EXIT_FAILURE);
+        }
+        else
+            a->size = n;
+        
+    }
+    else {
+        perror ("can't create array");
+        exit (EXIT_FAILURE);
+    }
+    
+    return a;
+}
 
-void C_ARR_Set (C_ARR *a, void *data, size_t index);
+size_t array_size (C_ARR *a) {
+    return a->size;
+}
 
-void *C_ARR_Get (C_ARR *a, size_t index);
+void array_del (C_ARR *a, void (*f)(void *)) {
 
-size_t array_size (C_ARR *a);
+    free (a->data);
+    free (a);
+}
+
+void array_set (C_ARR *a, void *data, size_t index) {
+    while (a->size < index + 1)
+        grow_array (a);
+    
+    a->data[index] = data;
+}
+
+void *array_get (C_ARR *a, size_t index) {
+    void *data = NULL;
+    
+    if (index < a->size)
+        data = a->data[index];
+    
+    return data;
+}
