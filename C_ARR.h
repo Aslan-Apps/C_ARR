@@ -50,4 +50,4 @@ void C_ARR_Set (C_ARR *a, void *data, size_t index);
 
 void *C_ARR_Get (C_ARR *a, size_t index);
 
-size_t array_size (C_ARR *a);
+size_t C_ARR_Size (C_ARR *a);

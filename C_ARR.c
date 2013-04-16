@@ -40,7 +40,7 @@
 #include "C_ARR.h"
 
 
-static void grow_array (C_ARR *a) {
+static void C_ARR_Grow (C_ARR *a) {
     void **tmp = NULL;
     a->size *= 2;
     
@@ -52,7 +52,7 @@ static void grow_array (C_ARR *a) {
     a->data = tmp;
 }
 
-C_ARR *array_new (size_t n) {
+C_ARR *C_ARR_Create (size_t n) {
     C_ARR *a = malloc (sizeof *a);
     
     if (n < 1)
@@ -77,24 +77,24 @@ C_ARR *array_new (size_t n) {
     return a;
 }
 
-size_t array_size (C_ARR *a) {
+size_t C_ARR_Size (C_ARR *a) {
     return a->size;
 }
 
-void array_del (C_ARR *a, void (*f)(void *)) {
+void C_ARR_Delete (C_ARR *a, void (*f)(void *)) {
 
     free (a->data);
     free (a);
 }
 
-void array_set (C_ARR *a, void *data, size_t index) {
+void C_ARR_Set (C_ARR *a, void *data, size_t index) {
     while (a->size < index + 1)
-        grow_array (a);
+        C_ARR_Grow(a);
     
     a->data[index] = data;
 }
 
-void *array_get (C_ARR *a, size_t index) {
+void *C_ARR_Get (C_ARR *a, size_t index) {
     void *data = NULL;
     
     if (index < a->size)
